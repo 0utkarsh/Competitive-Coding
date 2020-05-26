@@ -42,17 +42,21 @@ void mergePath(int u, int v)
 		{
 			u = getBCC(u);
 			va.push_back(u);
-			if(vis[u] == current)
+			if(vis[u] == current){
 				lca = u;
+				break;
+			}
 			vis[u] = current;
 			u = link[u];
 		}
 		if(v != -1)
 		{
-			vb.push_back(v);
 			v = getBCC(v);
-			if(vis[v] == current)
+			vb.push_back(v);
+			if(vis[v] == current){
 				lca = v;
+				break;
+			}
 			vis[v] = current;
 			v = link[v];
 		}
